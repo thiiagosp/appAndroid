@@ -65,7 +65,7 @@ public class CreateAccountActivity extends AppCompatActivity implements LoaderCa
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_account2);
+        setContentView(R.layout.activity_create_account);
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();

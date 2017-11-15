@@ -65,7 +65,7 @@ public class EditProfileActivity extends AppCompatActivity implements LoaderCall
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_profile2);
+        setContentView(R.layout.activity_edit_profile);
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();

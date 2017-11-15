@@ -38,6 +38,10 @@
         <activity
             android:name=".AddCategoryActivity"
             android:label="@string/title_activity_add_category"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ListSpent"
+            android:label="@string/title_activity_list_spent"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
