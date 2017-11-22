@@ -3,13 +3,11 @@ package com.example.heisenberg.testapp;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 public class AddCategory extends AppCompatActivity {
-
-    private String id;
-    private String name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,22 +25,19 @@ public class AddCategory extends AppCompatActivity {
             public void onClick(View v)
             {
 
-//                HttpClient httpclient = new DefaultHttpClient();
-//                HttpPost httppost = new HttpPost("http://<ip address>:3000");
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 String url = "https://studytutorial.in/post.php";
 //
-//                try {
-//                    //add data
-//                    List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(1);
-//                    nameValuePairs.add(new BasicNameValuePair("data", data[0]));
-//                    httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-//                    //execute http post
-//                    HttpResponse response = httpclient.execute(httppost);
+//                JSONObject postDataParams = new JSONObject();
+//                postDataParams.put("name", "abc");
+//                postDataParams.put("email", "abc@gmail.com");
+//                Log.e("params",postDataParams.toString());
 //
-//                } catch (ClientProtocolException e) {
-//
-//                } catch (IOException e) {
-//
-//                }
+//                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+//                conn.setReadTimeout(15000 /* milliseconds */);
+//                conn.setConnectTimeout(15000 /* milliseconds */);
+//                conn.setRequestMethod("POST");
+//                conn.setDoInput(true);
+//                conn.setDoOutput(true);
 
 
             }

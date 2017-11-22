@@ -3,22 +3,20 @@ package com.example.heisenberg.testapp;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.app.LoaderManager.LoaderCallbacks;
-
 import android.content.CursorLoader;
+import android.content.Intent;
 import android.content.Loader;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
-
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -88,9 +86,19 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mLoginButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-//              attemptLogin();
-                Log.i("clicks","You Clicked B1");
-                Intent i=new Intent(LoginActivity.this, ListSpent.class);
+              attemptLogin();
+//                Log.i("clicks","You Clicked B1");
+//                Intent i=new Intent(LoginActivity.this, ListSpent.class);
+//                startActivity(i);
+            }
+        });
+
+        Button mCreateAccountButton = (Button) findViewById(R.id.new_account_button);
+        mCreateAccountButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.i("clicks","You Clicked B2");
+                Intent i=new Intent(LoginActivity.this, CreateAccountActivity.class);
                 startActivity(i);
             }
         });
@@ -189,9 +197,25 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         } else {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
-            showProgress(true);
-            mAuthTask = new UserLoginTask(email, password);
-            mAuthTask.execute((Void) null);
+//            showProgress(true);
+//            mAuthTask = new UserLoginTask(email, password);
+//            mAuthTask.execute((Void) null);
+
+
+
+
+
+
+            Log.i("clicks","You Clicked B1");
+            Intent i=new Intent(LoginActivity.this, ListSpent.class);
+            startActivity(i);
+
+
+
+
+
+
+
         }
     }
 
