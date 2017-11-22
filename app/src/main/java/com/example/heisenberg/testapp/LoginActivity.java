@@ -29,8 +29,18 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.android.volley.AuthFailureError;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
@@ -206,9 +216,54 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
 
 
-            Log.i("clicks","You Clicked B1");
-            Intent i=new Intent(LoginActivity.this, ListSpent.class);
-            startActivity(i);
+            final TextView mTextView = (TextView) findViewById(R.id.responseText);
+            RequestQueue queue = Volley.newRequestQueue(this);
+            String url = "http://localhost:4354/login";
+
+            StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                    new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            Log.i("clicks","You Clicked B1");
+                            Intent i=new Intent(LoginActivity.this, ListSpent.class);
+                            startActivity(i);
+                        }
+                    }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    mTextView.setText("That didn't work!");
+                }
+
+            }){
+                @Override
+                protected Map<String,String> getParams(){
+                    Map<String,String> params = new HashMap<String, String>();
+                    params.put("email", "thiagopereira@gmail.com");
+                    params.put("password", "senha");
+
+                    return params;
+                }
+
+                @Override
+                public Map<String, String> getHeaders() throws AuthFailureError {
+                    Map<String,String> params = new HashMap<String, String>();
+                    params.put("Content-Type","application/x-www-form-urlencoded");
+                    return params;
+                }
+            };;
+
+            // Add the request to the RequestQueue.
+            queue.add(stringRequest);
+
+
+
+
+
+
+
+//            Log.i("clicks","You Clicked B1");
+//            Intent i=new Intent(LoginActivity.this, ListSpent.class);
+//            startActivity(i);
 
 
 
