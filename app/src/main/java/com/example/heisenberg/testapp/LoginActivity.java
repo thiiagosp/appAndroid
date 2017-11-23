@@ -216,7 +216,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
 
 
-            final TextView mTextView = (TextView) findViewById(R.id.responseText);
+            final TextView mTextView = (TextView) findViewById(R.id.responseTextLogin);
             RequestQueue queue = Volley.newRequestQueue(this);
             String url = "http://localhost:4354/login";
 
@@ -250,7 +250,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                     params.put("Content-Type","application/x-www-form-urlencoded");
                     return params;
                 }
-            };;
+            };
 
             // Add the request to the RequestQueue.
             queue.add(stringRequest);
