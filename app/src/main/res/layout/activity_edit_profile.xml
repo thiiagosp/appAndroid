@@ -11,6 +11,7 @@
     tools:context="com.example.heisenberg.testapp.EditProfileActivity">
 
     <!-- Login progress -->
+
     <ProgressBar
         android:id="@+id/login_progress"
         style="?android:attr/progressBarStyleLarge"
@@ -33,6 +34,15 @@
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/emailUser2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="Email Address"
+                    android:inputType="textEmailAddress" />
 
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
