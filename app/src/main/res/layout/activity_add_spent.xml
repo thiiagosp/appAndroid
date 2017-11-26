@@ -28,11 +28,6 @@
                 android:hint="date (DD/MM/YYYY)"
                 android:inputType="date" />
 
-            <Spinner
-                android:id="@+id/spentCategory"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
             <Button
                 android:id="@+id/button"
                 android:layout_width="match_parent"

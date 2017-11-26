@@ -17,6 +17,7 @@ import com.android.volley.toolbox.Volley;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 public class AddCategory extends AppCompatActivity {
 
@@ -49,9 +50,10 @@ public class AddCategory extends AppCompatActivity {
 
     private void addCategoryRequest() {
 
+        final TextView mCategoryName = (TextView) findViewById(R.id.categoryName);
         final TextView mTextView = (TextView) findViewById(R.id.responseText);
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "http://localhost:4354/category/add";
+        String url = "http://localhost:4567/category/create";
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
@@ -68,9 +70,11 @@ public class AddCategory extends AppCompatActivity {
         }){
             @Override
             protected Map<String,String> getParams(){
+                Random randomNumber = new Random();
+                int idNumber = randomNumber.nextInt(100000);
                 Map<String,String> params = new HashMap<String, String>();
-                params.put("id", "10");
-                params.put("nome", "Bar");
+                params.put("id", String.valueOf(idNumber));
+                params.put("nome", String.valueOf(mCategoryName));
 
                 return params;
             }

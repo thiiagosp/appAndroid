@@ -218,7 +218,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
             final TextView mTextView = (TextView) findViewById(R.id.responseTextLogin);
             RequestQueue queue = Volley.newRequestQueue(this);
-            String url = "http://localhost:4354/login";
+            String url = "http://localhost:4567/login";
+
+            final TextView mEmail = (TextView) findViewById(R.id.email);
+            final TextView mPassword = (TextView) findViewById(R.id.password);
 
             StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                     new Response.Listener<String>() {
@@ -238,8 +241,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 @Override
                 protected Map<String,String> getParams(){
                     Map<String,String> params = new HashMap<String, String>();
-                    params.put("email", "thiagopereira@gmail.com");
-                    params.put("password", "senha");
+                    params.put("email", String.valueOf(mEmail));
+                    params.put("password", String.valueOf(mPassword));
 
                     return params;
                 }
