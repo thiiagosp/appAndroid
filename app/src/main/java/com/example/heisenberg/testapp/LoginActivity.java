@@ -97,9 +97,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             @Override
             public void onClick(View view) {
               attemptLogin();
-//                Log.i("clicks","You Clicked B1");
-//                Intent i=new Intent(LoginActivity.this, ListSpent.class);
-//                startActivity(i);
             }
         });
 
@@ -109,6 +106,16 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             public void onClick(View view) {
                 Log.i("clicks","You Clicked B2");
                 Intent i=new Intent(LoginActivity.this, CreateAccountActivity.class);
+                startActivity(i);
+            }
+        });
+
+        Button mResetPasswordButton = (Button) findViewById(R.id.reset_pass_button);
+        mResetPasswordButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.i("clicks","You Clicked B3");
+                Intent i=new Intent(LoginActivity.this, RestPassActivity.class);
                 startActivity(i);
             }
         });

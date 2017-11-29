@@ -83,10 +83,20 @@
         style="?android:textAppearanceSmall"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="100dp"
         android:text="Create Account"
         android:textStyle="bold"
         tools:text="Create Account" />
+
+    <Button
+        android:id="@+id/reset_pass_button"
+        style="?android:textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Forgot Password?"
+        android:textStyle="bold"
+        tools:text="Forgot Password?" />
 
 
     <TextView
