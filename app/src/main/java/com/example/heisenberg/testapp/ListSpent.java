@@ -44,12 +44,15 @@ public class ListSpent extends AppCompatActivity {
 
     private void getSpents() {
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "http://localhost:4567/gasto";
+        String url = "http://172.20.10.3:4567/spendies/";
+        final TextView mTextView = (TextView) findViewById(R.id.listSpent);
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        mTextView.setText("que " + response.toString());
+//                        mTextView.setText("Response is: "+ response.substring(0,500));
 
                     }
                 }, new Response.ErrorListener() {
@@ -57,20 +60,7 @@ public class ListSpent extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
 //                mTextView.setText("That didn't work!");
             }
-        }){
-            @Override
-            protected Map<String,String> getParams(){
-                Map<String,String> params = new HashMap<String, String>();
-                return params;
-            }
-
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                Map<String,String> params = new HashMap<String, String>();
-                params.put("Content-Type","application/x-www-form-urlencoded");
-                return params;
-            }
-        };
+        });
         // Add the request to the RequestQueue.
         queue.add(stringRequest);
 

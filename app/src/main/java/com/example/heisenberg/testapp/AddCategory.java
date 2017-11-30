@@ -10,6 +10,10 @@ import android.widget.TextView;
 import com.android.volley.AuthFailureError;
 import com.android.volley.RequestQueue;
 import com.android.volley.Request;
+import org.json.JSONObject;
+import org.json.JSONException;
+import org.json.JSONStringer;
+import com.android.volley.NetworkResponse;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
@@ -53,7 +57,9 @@ public class AddCategory extends AppCompatActivity {
         final TextView mCategoryName = (TextView) findViewById(R.id.categoryName);
         final TextView mTextView = (TextView) findViewById(R.id.responseText);
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "http://localhost:4567/category/create";
+        JSONStringer json = new JSONStringer();
+        String url = "http://172.20.10.3:4567/category/create";
+
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
@@ -65,16 +71,19 @@ public class AddCategory extends AppCompatActivity {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                mTextView.setText("That didn't work!");
+                NetworkResponse networkResponse = error.networkResponse;
+                mTextView.setText(String.valueOf(mCategoryName) + networkResponse.statusCode);
+
             }
         }){
             @Override
             protected Map<String,String> getParams(){
                 Random randomNumber = new Random();
+
                 int idNumber = randomNumber.nextInt(100000);
                 Map<String,String> params = new HashMap<String, String>();
-                params.put("id", String.valueOf(idNumber));
-                params.put("nome", String.valueOf(mCategoryName));
+                params.put("id", "22");
+                params.put("nome", "teste");
 
                 return params;
             }
